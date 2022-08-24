@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Sándor Ádám</title>
+	<link rel="stylesheet" href="s">
+	<script language="Javascript">
+
+		function trapter() {
+			a = prompt("Kérem a trapéz alapjait (a): ");
+			c = prompt("Kérem a trapéz alapjait (c): ");
+			m = prompt("Kérem a trapéz magasságát (m): ");
+			var T = 0;
+			T = ((a + c) * m) / 2;
+			return T;
+		}
+
+		function fordit(a) {
+			var y = document.getElementById('ide');
+
+			y.innerHTML = "A szöveg visszafelé: ";
+
+			for (i = a.length - 1; i >= 0; i--) {
+				y.innerHTML += a[i];
+			}
+		}
+
+
+		function osztnegy(v) {
+			var p = new Array(15);
+			k = 0;
+			for (i = 0; i < 15; i++) {
+				if (v[i] % 4 == 0) {
+					p[k] = v[i];
+					k++;
+				}
+			}
+			var x = document.getElementById('negy');
+			x.innerHTML = "Néggyel osztható számok: ";
+			for (i = 0; i < k; i++) {
+				if (i < k - 1)
+					x.innerHTML += p[i] + ", ";
+				else
+					x.innerHTML += p[i];
+			}
+		}
+		function general() {
+			var x = document.getElementById('gen')
+
+			var tomb = new Array(15);
+			x.innerHTML = "Generált számok: ";
+
+			for (i = 0; i < 15; i++) {
+				tomb[i] = Math.round(Math.random() * 10);
+				if (i < 14)
+					x.innerHTML += tomb[i] + ", ";
+				else
+					x.innerHTML += tomb[i];
+			}
+			osztnegy(tomb);
+		}
+
+	</script>
+	<style>
+		body {
+			font-family: arial;
+			font-size: 14;
+			color: red;
+			background-color: lightblue;
+		}
+	</style>
+</head>
+
+<body>
+	<ol>
+		<form name="urlap">
+			<li><i><b><u>Feladat - Trapéz területe</u></b></i>
+				<br>Kattintson az alábbi gombra és a begépelt adatok alapján kiszámolja a trapéz területét.
+
+				<br><input type="button" value="Adatok bekérése és területszámítás"
+					onClick="document.urlap.eredmeny.value=trapter();">
+				<br><b>Eredmény: </b>
+				<input type="text" name="eredmeny">
+				<p style="border-bottom:solid;border-width: 1px;">
+
+		</form>
+
+		<form name="urlap2">
+
+			<li><i><b><u>Feladat - Szöveg fordítva </u></b></i>
+				<br><input type="text" name="szoveg">
+
+				<br><input type="button" value="Fordít" onClick="ide.value=fordit(szoveg.value)" ;>
+				<div id="re" style="color:green"> </div>
+				<div id="ide" style="color:green"> </div>
+				<p style="border-bottom:solid;border-width: 1px;">
+
+		</form>
+
+		<form name="urlap3">
+
+			<li><i><b><u>Feladat - Generál</u></b></i>
+				<br>Kattintson a "Generál" gombra, és lesz 15 egész szám! Keresse meg a néggyel osztható számokat a
+				generált számok közül!
+
+				<br><input type="button" value="Generál és vizsgál" onClick="general();">
+				<div id="gen" style="color:brown"> </div>
+				<div id="negy" style="color:blue"> </div>
+
+
+		</form>
+	</ol>
+
+	<script language="Javascript">
+
+
+
+	</script>
+
+
+</body>
+
+</html>
